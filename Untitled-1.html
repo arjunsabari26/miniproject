@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .form-container, .thank-you-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+            display: none;
+        }
+        .form-container.active, .thank-you-container.active {
+            display: block;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .form-group textarea {
+            resize: vertical;
+        }
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        .submit-btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <!-- Form Section -->
+    <div class="form-container active" id="form-container">
+        <h2>Query Form</h2>
+        <form id="query-form">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            </div>
+            <div class="form-group">
+                <label for="area">Area Name</label>
+                <input type="text" id="area" name="area" placeholder="Enter area name" required>
+            </div>
+            <div class="form-group">
+                <label for="street">Street Name</label>
+                <input type="text" id="street" name="street" placeholder="Enter street name" required>
+            </div>
+            <div class="form-group">
+                <label for="landmark">Landmark Name</label>
+                <input type="text" id="landmark" name="landmark" placeholder="Enter landmark name">
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+            </div>
+            <div class="form-group">
+                <label for="query">Query</label>
+                <textarea id="query" name="query" rows="4" placeholder="Enter your query" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+
+    <!-- Thank You Section -->
+    <div class="thank-you-container" id="thank-you-container">
+        <h1>Water Department</h1>
+        <p>Your Query has been submitted successfully!</p>
+    </div>
+
+    <script>
+        const form = document.getElementById('query-form');
+        const formContainer = document.getElementById('form-container');
+        const thankYouContainer = document.getElementById('thank-you-container');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault(); // Prevent form from reloading the page
+            formContainer.classList.remove('active');
+            thankYouContainer.classList.add('active');
+        });
+    </script>
+</body>
+</html>
